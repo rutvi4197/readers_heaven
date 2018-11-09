@@ -7,46 +7,52 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import DAO.BookDAO;
+import DAO.categoryDAO;
+import DAO.cartDAO;
 import bean.bookBean;
-import bean.reviewBean;
-import DAO.reviewDAO;
+import bean.categoryBean;
 
 /**
- * Servlet implementation class bookDetailServlet
+ * Servlet implementation class cartServlet
  */
-public class bookDetailServlet extends HttpServlet {
+public class cartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public bookDetailServlet() {
+    public cartServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int book_id=Integer.parseInt(request.getParameter("id"));
-		try {
-			bookBean book = new BookDAO().getBookDetail(book_id);
-			
-			List<bookBean> catBook=new BookDAO().getCategoryBooks(book.getCategory_id(),book.getBook_id());
-			List<reviewBean> reviews=new reviewDAO().getReview(book_id);
-					
-				request.setAttribute("bookDetail", book);
-				request.setAttribute("catBook", catBook);
-				request.setAttribute("reviews", reviews);
-				request.getRequestDispatcher("viewBook.jsp").forward(request, response);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println("in catch");
-				e.printStackTrace();
-				}
+		List<categoryBean> listOfCategory = null;
+		HttpSession session=request.getSession();
+		Integer user_id=(Integer)session.getAttribute("user_id");
+		if(user_id==null) {
+			response.sendRedirect("./login.jsp");
+		}
+		else {
+		
+			try {
+			listOfCategory = new categoryDAO().getAllCategory();
+			List<bookBean> booklist=new cartDAO().getRentRecord(user_id);
+			request.setAttribute("rentBook", booklist);
+			request.setAttribute("listOfCategory", listOfCategory);
+			request.getRequestDispatcher("cart.jsp").forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("in catch");
+			e.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -54,6 +60,7 @@ public class bookDetailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		}
+		doGet(request, response);
+	}
 
 }

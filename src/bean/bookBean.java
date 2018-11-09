@@ -12,12 +12,21 @@ public class bookBean {
 	private int mrp;
 	private String photo;
 	private int category_id;
+	private String category_name;
 	private String description;
 	private int publish_year;
 	private String book_language;
 	private int status;
 	private String created_on;
 	private String modified_on;
+	private int rent_id;
+	
+	public int getRent_id() {
+		return rent_id;
+	}
+	public void setRent_id(int rent_id) {
+		this.rent_id = rent_id;
+	}
 	public int getBook_id() {
 		return book_id;
 	}
@@ -113,6 +122,12 @@ public class bookBean {
 	}
 	public void setModified_on(String modified_on) {
 		this.modified_on = modified_on;
+	}
+	public String getCategory_name() {
+		return category_name;
+	}
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
 	}
 	
 	

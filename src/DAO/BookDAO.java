@@ -123,5 +123,74 @@ public class BookDAO {
 		      }
 		      return b;
 		}
+		
+		public List<bookBean> getCategoryBooks(int id,int book_id) {
+			 List<bookBean> bookList =new ArrayList<bookBean>();
+			 Statement stmt;
+		      bookBean b=null;
+		      try {
+		    	  stmt = con.createStatement();        
+		          ResultSet rs = stmt.executeQuery("select * from book where book_id!="+book_id+" and category_id="+id);
+		         
+		          while ( rs.next() ) 
+		          {
+		              b = new bookBean();
+		              b.setBook_id(rs.getInt("book_id"));
+		              b.setBook_title(rs.getString("book_title"));
+		              b.setAuthor(rs.getString("author"));
+		              b.setEdition(rs.getInt("edition"));
+		              b.setPublisher(rs.getString("publisher"));
+		              b.setIsbn(rs.getString("isbn"));
+		              b.setPages(rs.getInt("pages"));
+		              b.setMrp(rs.getInt("mrp"));
+		              b.setPhoto(rs.getString("photo"));
+		              b.setCategory_id(rs.getInt("category_id"));
+		              b.setDescription(rs.getString("description"));
+		              b.setPublish_year(rs.getInt("publish_year"));
+		              b.setBook_language(rs.getString("book_language"));
+		            
+		             bookList.add(b);
+		          }    
+		    	  
+		      }  catch(SQLException e) {
+		          System.out.println("dao"+e);
+		      }
+		      return bookList;
+		}
+		
+		
+		public List<bookBean> getCategoryAllBooks(int id) {
+			 List<bookBean> bookList =new ArrayList<bookBean>();
+			 Statement stmt;
+		      bookBean b=null;
+		      try {
+		    	  stmt = con.createStatement();        
+		          ResultSet rs = stmt.executeQuery("select * from book as b,category as c where b.category_id="+id+" and b.category_id=c.category_id");
+		         
+		          while ( rs.next() ) 
+		          {
+		              b = new bookBean();
+		              b.setBook_id(rs.getInt("book_id"));
+		              b.setBook_title(rs.getString("book_title"));
+		              b.setAuthor(rs.getString("author"));
+		              b.setEdition(rs.getInt("edition"));
+		              b.setPublisher(rs.getString("publisher"));
+		              b.setIsbn(rs.getString("isbn"));
+		              b.setPages(rs.getInt("pages"));
+		              b.setMrp(rs.getInt("mrp"));
+		              b.setPhoto(rs.getString("photo"));
+		              b.setCategory_id(rs.getInt("category_id"));
+		              b.setDescription(rs.getString("description"));
+		              b.setPublish_year(rs.getInt("publish_year"));
+		              b.setBook_language(rs.getString("book_language"));
+		              b.setCategory_name(rs.getString("category_name"));
+		             bookList.add(b);
+		          }    
+		    	  
+		      }  catch(SQLException e) {
+		          System.out.println("dao"+e);
+		      }
+		      return bookList;
+		}
 
 }

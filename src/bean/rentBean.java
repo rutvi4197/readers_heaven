@@ -7,6 +7,20 @@ public class rentBean {
 	private int user_id;
 	private String issue_date;
 	private String return_date;
+	private int quantity;
+	private int statusOfRent;
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getStatusOfRent() {
+		return statusOfRent;
+	}
+	public void setStatusOfRent(int statusOfRent) {
+		this.statusOfRent = statusOfRent;
+	}
 	public int getRent_id() {
 		return rent_id;
 	}

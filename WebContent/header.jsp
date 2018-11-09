@@ -41,13 +41,13 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
 							<div class="logo-area text-center logo-xs-mrg">
-								<a href="index.html"><img src="img/logo/logo.png" alt="logo" /></a>
+								<a href="index.jsp"><img src="img/logo/logo.png" alt="logo" /></a>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 							<div class="my-cart">
 								<ul>
-									<li><a href="#"><i class="fa fa-shopping-cart"></i>My Cart</a>
+									<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>My Cart</a>
 										
 									</li>
 								</ul>
@@ -77,7 +77,7 @@
 									%>
 										
 										<div class="safe-area">
-								<a href=""><%= category.getCategory_name() %></a>
+								<a href="./shopServlet?id=<%=category.getCategory_id()%>"><%= category.getCategory_name() %></a>
 							</div>
 											<%} }%>
 									

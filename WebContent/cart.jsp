@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.ArrayList" %>
+    <%@page import="java.util.List" %>
+    <%@page import="bean.categoryBean" %>
+    <%@page import="bean.bookBean" %>   
 <!doctype html>
 <html class="no-js" lang="en">
     
@@ -7,7 +11,7 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Koparion – Book Shop Bootstrap 4 Template</title>
+        <title>Reader's Heaven</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -66,6 +70,10 @@
         <script src="./js/main.js"></script>
     </head>
     <body class="cart">
+      <%List<categoryBean>list=(ArrayList)request.getAttribute("listOfCategory");
+	if(list==null){ %>
+		 <jsp:forward page="/cartServlet" />
+		 <% } %>
        <%@include file="header.jsp" %>
        
 		<!-- breadcrumbs-area-start -->
@@ -75,7 +83,7 @@
 					<div class="col-lg-12">
 						<div class="breadcrumbs-menu">
 							<ul>
-								<li><a href="#">Home</a></li>
+								<li><a href="index.jsp">Home</a></li>
 								<li><a href="#" class="active">cart</a></li>
 							</ul>
 						</div>
@@ -110,28 +118,30 @@
 											<th class="product-thumbnail">Image</th>
 											<th class="product-name">Product</th>
 											<th class="product-price">Price</th>
-											<th class="product-quantity">Quantity</th>
-											<th class="product-subtotal">Total</th>
 											<th class="product-remove">Remove</th>
 										</tr>
 									</thead>
 									<tbody>
+										
+										<% List<bookBean>rb=(ArrayList)request.getAttribute("rentBook");
+										int sum=0;
+											if(rb==null){%>
+											<h4>No Product in the cart</h4>	
+										<% 	}
+											else{
+												for(int i=0;i<rb.size();i++){
+													bookBean book=rb.get(i);
+													sum+=book.getMrp();
+										
+										%>
 										<tr>
-											<td class="product-thumbnail"><a href="#"><img src="img/cart/1.jpg" alt="man" /></a></td>
-											<td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-											<td class="product-price"><span class="amount">£165.00</span></td>
-											<td class="product-quantity"><input type="number" value="1"></td>
-											<td class="product-subtotal">£165.00</td>
-											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+											<td class="product-thumbnail"><a href="#"><img src="<%=book.getPhoto() %>" alt="man" /></a></td>
+											<td class="product-name"><a href="#"><%=book.getBook_title() %></a></td>
+											<td class="product-price"><span class="amount">Rs.<%=book.getMrp() %></span></td>
+											<td class="product-remove"><a href="./deleteCartServlet?id=<%=book.getRent_id()%>"><i class="fa fa-times"></i></a></td>
 										</tr>
-										<tr>
-											<td class="product-thumbnail"><a href="#"><img src="img/cart/2.jpg" alt="man" /></a></td>
-											<td class="product-name"><a href="#">Vestibulum dictum magna</a></td>
-											<td class="product-price"><span class="amount">£50.00</span></td>
-											<td class="product-quantity"><input type="number" value="1"></td>
-											<td class="product-subtotal">£50.00</td>
-											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-										</tr>
+										<%}} %>
+										
 									</tbody>
 								</table>
 							</div>
@@ -139,62 +149,11 @@
 					</div>
 				</div>
 				<div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                        <div class="buttons-cart mb-30">
-                            <ul>
-                                <li><a href="#">Update Cart</a></li>
-                                <li><a href="#">Continue Shopping</a></li>
-                            </ul>
-                        </div>
-                        <div class="coupon">
-                            <h3>Coupon</h3>
-                            <p>Enter your coupon code if you have one.</p>
-                            <form action="#">
-                                <input type="text" placeholder="Coupon code">
-                                <a href="#">Apply Coupon</a>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                   
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="cart_totals">
                             <h2>Cart Totals</h2>
-                            <table>
-                                <tbody>
-                                    <tr class="cart-subtotal">
-                                        <th>Subtotal</th>
-                                        <td>
-                                            <span class="amount">£215.00</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="shipping">
-                                        <th>Shipping</th>
-                                        <td>
-                                            <ul id="shipping_method">
-                                                <li>
-                                                    <input type="radio">
-                                                    <label>
-                                                        Flat Rate:
-                                                        <span class="amount">£7.00</span>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input type="radio">
-                                                    <label> Free Shipping </label>
-                                                </li>
-                                            </ul>
-                                            <a href="#">Calculate Shipping</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="order-total">
-                                        <th>Total</th>
-                                        <td>
-                                            <strong>
-                                                <span class="amount">£215.00</span>
-                                            </strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                           <h3>Total : Rs.<%=sum %></h3>
                             <div class="wc-proceed-to-checkout">
                                 <a href="#">Proceed to Checkout</a>
                             </div>
@@ -204,121 +163,7 @@
 			</div>
 		</div>
 		<!-- cart-main-area-end -->
-		<!-- footer-area-start -->
-		<footer>
-			<!-- footer-top-start -->
-			<div class="footer-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="footer-top-menu bb-2">
-								<nav>
-									<ul>
-										<li><a href="#">home</a></li>
-										<li><a href="#">Enable Cookies</a></li>
-										<li><a href="#">Privacy and Cookie Policy</a></li>
-										<li><a href="#">contact us</a></li>
-										<li><a href="#">blog</a></li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- footer-top-start -->
-			<!-- footer-mid-start -->
-			<div class="footer-mid ptb-50">
-				<div class="container">
-					<div class="row">
-				        <div class="col-lg-8 col-md-8 col-sm-12">
-				            <div class="row">
-				                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <div class="single-footer br-2 xs-mb">
-                                        <div class="footer-title mb-20">
-                                            <h3>Products</h3>
-                                        </div>
-                                        <div class="footer-mid-menu">
-                                            <ul>
-                                                <li><a href="about.html">About us</a></li>
-                                                <li><a href="#">Prices drop </a></li>
-                                                <li><a href="#">New products</a></li>
-                                                <li><a href="#">Best sales</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <div class="single-footer br-2 xs-mb">
-                                        <div class="footer-title mb-20">
-                                            <h3>Our company</h3>
-                                        </div>
-                                        <div class="footer-mid-menu">
-                                            <ul>
-                                                <li><a href="contact.html">Contact us</a></li>
-                                                <li><a href="#">Sitemap</a></li>
-                                                <li><a href="#">Stores</a></li>
-                                                <li><a href="register.html">My account </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <div class="single-footer br-2 xs-mb">
-                                        <div class="footer-title mb-20">
-                                            <h3>Your account</h3>
-                                        </div>
-                                        <div class="footer-mid-menu">
-                                            <ul>
-                                                <li><a href="contact.html">Addresses</a></li>
-                                                <li><a href="#">Credit slips </a></li>
-                                                <li><a href="#"> Orders</a></li>
-                                                <li><a href="#">Personal info</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-				            </div>
-				        </div>
-				        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="single-footer mrg-sm">
-                                <div class="footer-title mb-20">
-                                    <h3>STORE INFORMATION</h3>
-                                </div>
-                                <div class="footer-contact">
-                                    <p class="adress">
-                                        <span>My Company</span>
-                                        42 avenue des Champs Elysées 75000 Paris France
-                                    </p>
-                                    <p><span>Call us now:</span> (+1)866-540-3229</p>
-                                    <p><span>Email:</span>  support@hastech.com</p>
-                                </div>
-                            </div>
-				        </div>
-					</div>
-				</div>
-			</div>
-			<!-- footer-mid-end -->
-			<!-- footer-bottom-start -->
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="row bt-2">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="copy-right-area">
-								<p>Copyright ©<a href="#">Koparion</a>. All Right Reserved.</p>
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="payment-img text-right">
-								<a href="#"><img src="img/1.png" alt="payment" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- footer-bottom-end -->
-		</footer>
-		<!-- footer-area-end -->
+		<%@include file="footer.jsp" %>
 		
 		
 	
