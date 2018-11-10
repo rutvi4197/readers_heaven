@@ -40,7 +40,10 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+<%List<categoryBean>list=(ArrayList)request.getAttribute("listOfCategory");
+	if(list==null){ %>
+		 <jsp:forward page="/categoryServlet?action=login.jsp" />
+		 <% } %>
         <%@include file="header.jsp" %>
 		<!-- breadcrumbs-area-start -->
 		<div class="breadcrumbs-area mb-70">

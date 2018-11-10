@@ -76,8 +76,6 @@ public class cartDAO {
 			// TODO Auto-generated method stub
 			int n=0;
 			try {
-//				String query="insert into Item values( " +item.getitem_code()+",'"+item.getDescriptioin()+"',"+item.getQty()+","
-//							+item.getMinQty()+","+item.getCost()+",'1');";
 				String query="insert into rent values(null,"+book_id+","+user_id+",'"+issue_date+"','"+returnDate+"',"+qun+","+status+");";
 				Statement stmt = con.createStatement();
 				n = stmt.executeUpdate( query );

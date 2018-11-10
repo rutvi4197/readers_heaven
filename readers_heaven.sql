@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2018 at 07:53 AM
+-- Generation Time: Nov 10, 2018 at 12:17 PM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `book` (
   `created_on` varchar(15) NOT NULL,
   `modified_on` varchar(15) NOT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `book`
@@ -55,7 +55,13 @@ INSERT INTO `book` (`book_id`, `book_title`, `author`, `edition`, `publisher`, `
 (3, 'Harry Potter And the deathly Hallows', 'L.K.Rowing', 5, 'Srishti Publishers & Distributors', '9586471231', 668, 225, 'img/product/4.jpg', 8, 'The sporty Joust Duffle Bag can''t be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare, it''s ideal for athletes with places to go.', 2000, 'English', 0, '5/11/2018', ''),
 (4, 'Creating Your own destiny', 'Patrick Snow', 4, 'USA', '526478925', 750, 195, 'img/product/7.jpg', 1, 'How to Get exactly what you want out of life and work.', 2002, 'English', 0, '5/11/2018', ''),
 (5, 'Blue Link Jass', 'Blue whale', 3, 'India ', '1234567891', 250, 65, 'img/product/18.jpg', 2, '', 2005, 'Hindi', 0, '5/11/2018', ''),
-(6, 'One Indian Girl', 'Chetan Bhagat', 3, 'abccfj', '4512387745', 485, 70, 'img/product/2.jpg', 3, 'Story of one working woman.', 2010, 'Gujarati', 0, '5/11/2018', '');
+(6, 'One Indian Girl', 'Chetan Bhagat', 3, 'abccfj', '4512387745', 485, 70, 'img/product/2.jpg', 3, 'Story of one working woman.', 2010, 'Gujarati', 0, '5/11/2018', ''),
+(7, 'Call Me by Your Name', 'Andre Aciman', 6, 'Farrar, Straus and Giroux', '9780312426781', 256, 390, 'img/product/7.jpg', 4, 'asdfghjasfgh', 2007, 'English', 0, '6-11-2018', ''),
+(8, 'Aganpankh (Gujarati)', 'A P J Abdul Kalam', 9, 'Gurjar Prakashan', '8189845713', 188, 135, 'img/product/34.jpg', 1, 'An Autobiography of APJ Abdul Kalam', 2015, 'Gujarati', 0, '6-11-2018', ''),
+(9, 'My Sister''s Keeper', ' Jodi Picoult', 1, 'Washington Square Press ', '0743454537', 423, 250, 'img/product/35.jpg', 3, 'A provocative novel that raises some important ethical issues, My Sister''s Keeper is the story of one family''s struggle for survival at all human costs and a stunning parable for all time. (less)', 2005, 'English', 0, '6-11-2018', ''),
+(10, 'Gone Girl', ' Gillian Flynn', 3, 'Broadway Books ', '0307588378 ', 415, 299, 'img/product/36.jpg', 7, 'find the killer', 2014, 'English', 0, '6-11-2018', ''),
+(11, 'Pet Sematary', ' Stephen King', 2, ' Scribner', '0474345753', 580, 350, 'img/product/38.jpg', 6, 'Sometimes dead is better....When the Creeds move into a beautiful old house in rural Maine, it all seems too good to be true: physician father, beautiful wife, charming little daughter, adorable infant son -- and now an idyllic home. As a family, they''ve got it all...right down to the friendly cat. But the nearby woods hide a blood-chilling truth -- more terrifying than death itself...and hideously more powerful. (less)', 2014, 'English', 0, '6-11-2018', ''),
+(12, 'MORNING MANTRA', 'RJ DHVANIT', 1, 'Navbharat Sahitya Mandir', '9789351980995', 160, 150, 'img/product/37.jpg', 8, 'Jivati Jindagini Jhakalbhini Vaato', 2017, 'Gujarati', 0, '6-11-2018', '');
 
 -- --------------------------------------------------------
 
@@ -162,14 +168,16 @@ CREATE TABLE IF NOT EXISTS `membership_card` (
   `description` varchar(50) NOT NULL,
   `title` varchar(50) NOT NULL,
   PRIMARY KEY (`mcard_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `membership_card`
 --
 
 INSERT INTO `membership_card` (`mcard_id`, `description`, `title`) VALUES
-(1, 'Silver', 'Leasure');
+(1, 'Silver', 'Silver'),
+(2, '', 'Gold'),
+(3, '', 'Platinum');
 
 -- --------------------------------------------------------
 
@@ -183,14 +191,22 @@ CREATE TABLE IF NOT EXISTS `membership_month_mapping` (
   `price` int(11) NOT NULL,
   `month_number` int(11) NOT NULL,
   PRIMARY KEY (`month_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `membership_month_mapping`
 --
 
 INSERT INTO `membership_month_mapping` (`month_id`, `mcard_id`, `price`, `month_number`) VALUES
-(1, 1, 500, 11);
+(1, 1, 500, 3),
+(2, 1, 1000, 6),
+(3, 1, 1350, 12),
+(4, 2, 1000, 3),
+(5, 2, 1900, 6),
+(6, 2, 3500, 12),
+(7, 3, 1500, 3),
+(8, 3, 2800, 6),
+(9, 3, 5000, 12);
 
 -- --------------------------------------------------------
 
@@ -227,15 +243,17 @@ CREATE TABLE IF NOT EXISTS `rent` (
   `user_id` int(11) NOT NULL,
   `issue_date` varchar(15) NOT NULL,
   `return_date` varchar(15) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `statusOfRent` int(2) NOT NULL,
   PRIMARY KEY (`rent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `rent`
 --
 
-INSERT INTO `rent` (`rent_id`, `library_book_mapping_id`, `user_id`, `issue_date`, `return_date`) VALUES
-(1, 1, 1, '2/11/18', '2/12/18');
+INSERT INTO `rent` (`rent_id`, `library_book_mapping_id`, `user_id`, `issue_date`, `return_date`, `quantity`, `statusOfRent`) VALUES
+(3, 12, 1, '09/11/2018', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -246,19 +264,19 @@ INSERT INTO `rent` (`rent_id`, `library_book_mapping_id`, `user_id`, `issue_date
 CREATE TABLE IF NOT EXISTS `review` (
   `review_id` int(11) NOT NULL AUTO_INCREMENT,
   `book_id` int(11) NOT NULL,
-  `value` int(11) NOT NULL,
-  `quality` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `summary` varchar(500) NOT NULL,
   `review` varchar(500) NOT NULL,
   PRIMARY KEY (`review_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `review`
 --
 
+INSERT INTO `review` (`review_id`, `book_id`, `name`, `summary`, `review`) VALUES
+(19, 4, 'Dhruvil', 'abcdex', 'azsxdcfvgbhnjmk,l'),
+(11, 4, 'rutvi', 'jdsfjn', 'dsgv');
 
 -- --------------------------------------------------------
 
@@ -275,18 +293,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` tinyint(1) NOT NULL,
   `created_on` varchar(15) NOT NULL,
   `modified_on` varchar(15) NOT NULL,
-  `gender` varchar(1) NOT NULL,
   `wallet_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `name`, `email`, `password`, `membership_id`, `status`, `created_on`, `modified_on`, `gender`, `wallet_id`) VALUES
-(1, 'Rutvi Shah', 'rutvishah@gmail.com', 'priyansh', 1, 0, '2/11/18', '2/11/18', 'F', 1),
-(2, 'Shilpi Soni', 'shilpi@gmail.com', '3cef53fb709ddcf8', 0, 0, '5/11/2018', '', 'f', 0);
+INSERT INTO `user` (`user_id`, `name`, `email`, `password`, `membership_id`, `status`, `created_on`, `modified_on`, `wallet_id`) VALUES
+(1, 'Rutvi Shah', 'rutvishah@gmail.com', 'priyansh', 1, 0, '2/11/18', '2/11/18', 1),
+(2, 'Shilpi Soni', 'shilpi@gmail.com', '3cef53fb709ddcf8', 0, 0, '5/11/2018', '', 0),
+(6, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0),
+(7, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0),
+(8, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0),
+(9, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0);
 
 -- --------------------------------------------------------
 
@@ -297,21 +318,23 @@ INSERT INTO `user` (`user_id`, `name`, `email`, `password`, `membership_id`, `st
 CREATE TABLE IF NOT EXISTS `user_address` (
   `user_address_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `user_address` varchar(200) NOT NULL,
+  `user_address_1` varchar(200) NOT NULL,
+  `user_address_2` varchar(200) NOT NULL,
+  `city` varchar(20) NOT NULL,
   `pincode` int(6) NOT NULL,
-  `longitude` int(11) NOT NULL,
-  `latitude` int(11) NOT NULL,
+  `longitude` double NOT NULL,
+  `latitude` double NOT NULL,
   `contact_no` bigint(20) NOT NULL,
   `address_type` varchar(5) NOT NULL,
   PRIMARY KEY (`user_address_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_address`
 --
 
-INSERT INTO `user_address` (`user_address_id`, `user_id`, `user_address`, `pincode`, `longitude`, `latitude`, `contact_no`, `address_type`) VALUES
-(1, 1, 'Satellite', 380015, 0, 0, 9898774521, 'home');
+INSERT INTO `user_address` (`user_address_id`, `user_id`, `user_address_1`, `user_address_2`, `city`, `pincode`, `longitude`, `latitude`, `contact_no`, `address_type`) VALUES
+(2, 9, 'kshfuywehj', 'ksfhh', 'Ahmedabad', 3820015, 0, 0, 8905106525, 'home');
 
 -- --------------------------------------------------------
 
