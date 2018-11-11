@@ -33,9 +33,11 @@
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
 							<div class="header-search">
-								<form action="#">
-									<input type="text" placeholder="Search entire store here..." />
-									<a href="#"><i class="fa fa-search"></i></a>
+								<form action="./searchServlet" method="get">
+									<input type="text" placeholder="Search entire store here..." name="text"/>
+									<input type="submit" value="Search" style="background: #f07c29 none repeat scroll 0 0;
+									color: #fff;display: inline-block;font-size: 13px;height: 42px;line-height: 40px;position: absolute;
+									right: 0;text-align: center;top: 0;width: 42px;border-radius: 0 5px 5px 0px;padding-right:19%">
 								</form>
 							</div>
 						</div>

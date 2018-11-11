@@ -87,5 +87,22 @@ public class loginDAO {
 		        }
 			return n>0;
 		}
+		
+		
+		public Boolean updateMembership(int user_id,int mid) {
+			int n=0;
+			
+			try {
+				String query="update user set membership_id="+mid+" where user_id="+user_id+";";
+			
+				Statement stmt = con.createStatement();
+				n = stmt.executeUpdate( query );
+				
+			}
+			 catch(SQLException e) {
+		            System.out.println(e.getMessage());
+		        }
+			return n>0;
+		}
 
 }

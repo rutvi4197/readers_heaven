@@ -129,4 +129,14 @@
     <servlet-name>membershipServlet</servlet-name>
     <url-pattern>/membershipServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addMembershipServlet</display-name>
+    <servlet-name>addMembershipServlet</servlet-name>
+    <servlet-class>controller.addMembershipServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addMembershipServlet</servlet-name>
+    <url-pattern>/addMembershipServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

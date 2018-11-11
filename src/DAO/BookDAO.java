@@ -192,5 +192,42 @@ public class BookDAO {
 		      }
 		      return bookList;
 		}
+		
+		
+		public List<bookBean> searchResult(String text) {
+			 List<bookBean> bookList =new ArrayList<bookBean>();
+			 Statement stmt;
+		      bookBean b=null;
+		      try {
+		    	  String query="select * from book where book_title like '%"+text+"%' or description like '%"+text+"%'";
+		    	  stmt = con.createStatement();        
+		          ResultSet rs = stmt.executeQuery(query);
+		         
+		          while ( rs.next() ) 
+		          {
+		              b = new bookBean();
+		              b.setBook_id(rs.getInt("book_id"));
+		              b.setBook_title(rs.getString("book_title"));
+		              b.setAuthor(rs.getString("author"));
+		              b.setEdition(rs.getInt("edition"));
+		              b.setPublisher(rs.getString("publisher"));
+		              b.setIsbn(rs.getString("isbn"));
+		              b.setPages(rs.getInt("pages"));
+		              b.setMrp(rs.getInt("mrp"));
+		              b.setPhoto(rs.getString("photo"));
+		              b.setCategory_id(rs.getInt("category_id"));
+		              b.setDescription(rs.getString("description"));
+		              b.setPublish_year(rs.getInt("publish_year"));
+		              b.setBook_language(rs.getString("book_language"));
+		         
+		             bookList.add(b);
+		          }    
+		    	  
+		      }  catch(SQLException e) {
+		          System.out.println("dao"+e);
+		      }
+		      return bookList;
+		}
+		
 
 }

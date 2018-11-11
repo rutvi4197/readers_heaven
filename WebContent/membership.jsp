@@ -41,9 +41,7 @@
         <link rel="stylesheet" href="./css/responsive.css">
         
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 		<!-- modernizr css -->
         <script src="./js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -72,82 +70,128 @@ color:black;
 		 <% } %>
        
        <div style="padding-left:3%;">
-       <h2>Membership Plan</h2>
+        <a href="./index.jsp"><button style="float:right;font-size:15px;color:red" class="btn btn-default"><u>Skip</u></button></a>
+       <h1>Membership Plan</h1> 
+     
+       <div>
+   
+   </div>
+ 
        </div>
-     
-     	<div id="accordion" style="padding-left:3%;padding-right:3%;">
- 				 <div class="card">
-    			<div class="card-header" id="headingOne">
-      			<h5 class="mb-0">
-        			<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-          		<span style="font-size:20px"><%= membership.get(0).getTitle() %></span>
-        </button>
-      </h5>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-       <div class="row">
-      		 <div class="col-md-12">
-			       <div class="card bg-light mb-3" style="max-width: 18rem;">
-			  <div class="card-header">Header</div>
-			  <div class="card-body">
-			    <h5 class="card-title">Light card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			  </div>
-			  
-			  <div class="card bg-light mb-3" style="max-width: 18rem;">
-			  <div class="card-header">Header</div>
-			  <div class="card-body">
-			    <h5 class="card-title">Light card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			  </div>
-			  <div class="col-md-4">
-			  <div class="card bg-light mb-3" style="max-width: 18rem;">
-			  <div class="card-header">Header</div>
-			  <div class="card-body">
-			    <h5 class="card-title">Light card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-       	</div>
-       
-     		</div>  
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-         <span style="font-size:20px"> <%= membership.get(1).getTitle() %></span>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <span style="font-size:20px"><%= membership.get(2).getTitle() %></span>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
+    </br> 
+     <div class="alert alert-warning" role="alert" style="margin-left:3%; font-size:20px;margin-right:5%;">
+  <%= membership.get(0).getTitle() %>
 </div>
-     
-     
+<div class="row">
+<div class="col-md-4">
+		<div class="card" style=" margin-left:10%;width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%=month.get(0).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(0).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(0).getMcard_id() %>"class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div> 
+		</div>
+		<div class="col-md-4">
+		<div class="card" style="width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%=month.get(1).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(1).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(1).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div> 
+		</div>
+		<div class="col-md-4">
+		<div class="card" style=" width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%= month.get(2).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%= month.get(2).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(2).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div>     
+		</div>
+</div>
+<br>
+
+
+  <div class="alert alert-warning" role="alert" style="margin-left:3%; font-size:20px;margin-right:5%;">
+  <%= membership.get(1).getTitle() %>
+</div>
+<div class="row">
+<div class="col-md-4">
+		<div class="card" style=" margin-left:10%;width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%= month.get(3).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%= month.get(3).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(3).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div> 
+		</div>
+		<div class="col-md-4">
+		<div class="card" style="width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%=month.get(4).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(4).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(4).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div> 
+		</div>
+		<div class="col-md-4">
+		<div class="card" style=" width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%=month.get(5).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(5).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(5).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div>     
+		</div>
+</div> 
+<br>
+
+  <div class="alert alert-warning" role="alert" style="margin-left:3%; font-size:20px;margin-right:5%;">
+  <%= membership.get(2).getTitle() %>
+</div>
+<div class="row">
+<div class="col-md-4">
+		<div class="card" style=" margin-left:10%;width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%=month.get(6).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(6).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(6).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div> 
+		</div>
+		<div class="col-md-4">
+		<div class="card" style="width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%=month.get(7).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(7).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(7).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div> 
+		</div>
+		<div class="col-md-4">
+		<div class="card" style=" width:75%;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="font-size:25px;"><%=month.get(8).getMonth_number() %> Month Plan</h5>
+		   
+		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(8).getPrice() %> </p>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(8).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		  </div>
+		</div>     
+		</div>
+</div>
+   
+   
+      
 </body>
 
 </html>

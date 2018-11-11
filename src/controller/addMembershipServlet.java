@@ -1,26 +1,24 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import DAO.BookDAO;
-import bean.bookBean;
+import DAO.loginDAO;
 
 /**
- * Servlet implementation class searchServlet
+ * Servlet implementation class addMembershipServlet
  */
-public class searchServlet extends HttpServlet {
+public class addMembershipServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public searchServlet() {
+    public addMembershipServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,24 +28,22 @@ public class searchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String text=request.getParameter("text");
+		int id=Integer.parseInt(request.getParameter("id"));
+		HttpSession session=request.getSession();
+		int user_id=(Integer)session.getAttribute("user_id");
 		try {
-			List<bookBean> books=new BookDAO().searchResult(text);
-			request.setAttribute("categoryBooks", books);
-			request.getRequestDispatcher("shop.jsp").forward(request, response);
-			
+			if(new loginDAO().updateMembership(user_id, id))
+			{
+				response.sendRedirect("./index.jsp");
 			}
-			catch(Exception e) {
-				System.out.println (e.getMessage());
-			}
+		}catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		doGet(request,response);
 	}
 
 }
