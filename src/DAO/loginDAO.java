@@ -24,13 +24,11 @@ public class loginDAO {
 			int n=0;
 			 try {
 			        String query="select * from user where email= '"+email+"'and password='"+password+"' and status=0;";
-			        System.out.println(query);
 		    	  stmt = con.createStatement();        
 		          ResultSet rs = stmt.executeQuery(query);
 		          while(rs.next()) {
 		        	n++;
 		        	user=new userBean();
-		        	System.out.println(rs.getString("name"));
 		        	user.setUser_id(rs.getInt("user_id"));
 		          }
 		          if(n==1)
@@ -53,7 +51,7 @@ public class loginDAO {
 			int id=0;
 			try {
 				String query="insert into user values(null,'"+name+"','"+email+"','"+password+"',"+membership_id+","+status+",'"+createdOn+"','"+
-						modified_on+"',"+wallet_id+");";
+						modified_on+"',"+wallet_id+",null,null);";
 			
 				Statement stmt = con.createStatement();
 				n = stmt.executeUpdate( query );
@@ -89,20 +87,45 @@ public class loginDAO {
 		}
 		
 		
-		public Boolean updateMembership(int user_id,int mid) {
+		public Boolean updateMembership(int user_id,int mid,String issueDate,String returnDate) {
 			int n=0;
 			
 			try {
-				String query="update user set membership_id="+mid+" where user_id="+user_id+";";
+				String query="update user set membership_id="+mid+",wallet_id="+user_id+",membership_issue_date='"+issueDate
+						+ "',membership_return_date='"+returnDate+"' where user_id="+user_id+";";
 			
 				Statement stmt = con.createStatement();
 				n = stmt.executeUpdate( query );
+				new walletDAO().addWalletDetail(user_id, mid);
 				
+			}
+			catch(ClassNotFoundException c) {
+				System.out.println(c.getMessage());
 			}
 			 catch(SQLException e) {
 		            System.out.println(e.getMessage());
 		        }
 			return n>0;
 		}
+		
+		public String getReturnDate(int user_id) {
+				String returnDate="";
+			
+			try {
+				String query="select membership_return_date from user where user_id="+user_id;
+			
+				Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery( query );
+				while(rs.next()) {
+					returnDate=rs.getString("membership_return_date");
+				}
+				
+			}
+			 catch(SQLException e) {
+		            System.out.println(e.getMessage());
+		        }
+			return returnDate;
+		}
 
+		
 }

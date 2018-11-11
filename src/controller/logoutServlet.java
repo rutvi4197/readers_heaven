@@ -7,20 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.loginDAO;
-import DAO.walletDAO;
-import bean.userBean;
-
 /**
- * Servlet implementation class loginServlet
+ * Servlet implementation class logoutServlet
  */
-public class loginServlet extends HttpServlet {
+public class logoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginServlet() {
+    public logoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +26,9 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session=request.getSession();
+		session.invalidate();
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
@@ -38,27 +36,7 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email=request.getParameter("email");
-		String password=request.getParameter("password");
-		try {
-		userBean user=new loginDAO().checkLogin(email, password);
-		if(user!=null)
-		{
-			HttpSession session=request.getSession();	
-			session.setAttribute("user_id", user.getUser_id());
-			session.setAttribute("walletAmount", new walletDAO().getWalletPrice(user.getUser_id()));
-			response.sendRedirect("index.jsp");
-		}
-		else
-		{
-			response.sendRedirect("login.jsp");
-		}
-		
-		}
-		catch(Exception e)
-		{
-			System.out.println("Login Servlet "+e);
-		}
+		doGet(request, response);
 	}
 
 }

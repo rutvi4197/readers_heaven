@@ -12,6 +12,9 @@ public class userBean {
 	private String modified_on;
 	private String gender;
 	private int wallet_id;
+	private String membership_issue_date;
+	private String membership_return_date;
+	
 	public int getUser_id() {
 		return user_id;
 	}
@@ -71,6 +74,18 @@ public class userBean {
 	}
 	public void setWallet_id(int wallet_id) {
 		this.wallet_id = wallet_id;
+	}
+	public String getMembership_issue_date() {
+		return membership_issue_date;
+	}
+	public void setMembership_issue_date(String membership_issue_date) {
+		this.membership_issue_date = membership_issue_date;
+	}
+	public String getMembership_return_date() {
+		return membership_return_date;
+	}
+	public void setMembership_return_date(String membership_return_date) {
+		this.membership_return_date = membership_return_date;
 	}
 	
 	

@@ -16,11 +16,35 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 							<div class="account-area text-right">
+							<%
+							if(session.getAttribute("user_id")==null){
+							%>
 								<ul>
 									<li><a href="register.jsp">My Account</a></li>
 									<li><a href="checkout.jsp">Checkout</a></li>
 									<li><a href="login.jsp">Sign in</a></li>
 								</ul>
+								<%}else{ %>
+								<ul>
+									<li><a href="#">View Profile</a></li>
+									<li><a href="./orderServlet">Orders</a></li>
+									<li><a href="">Wallet Balance : <%
+										if(session.getAttribute("walletAmount")==null){
+											%>
+											0
+										<%}
+										else{
+											Integer amount=(Integer)session.getAttribute("walletAmount");		
+											%>
+											<%=amount%>
+										<%}
+									
+									%></a></li>
+									<li><a href="./logoutServlet">Logout</a></li>
+									
+								</ul>
+								
+								<%} %>
 							</div>
 						</div>
 					</div>

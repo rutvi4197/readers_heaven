@@ -89,7 +89,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%=month.get(0).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(0).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(0).getMcard_id() %>"class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(0).getMonth_id() %>&month=<%=month.get(0).getMonth_number() %>"class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div> 
 		</div>
@@ -99,7 +99,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%=month.get(1).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(1).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(1).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(1).getMonth_id() %>&month=<%=month.get(1).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div> 
 		</div>
@@ -109,7 +109,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%= month.get(2).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%= month.get(2).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(2).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(2).getMonth_id() %>&month=<%=month.get(2).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div>     
 		</div>
@@ -127,7 +127,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%= month.get(3).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%= month.get(3).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(3).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(3).getMonth_id() %>&month=<%=month.get(3).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div> 
 		</div>
@@ -137,7 +137,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%=month.get(4).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(4).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(4).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(4).getMonth_id() %>&month=<%=month.get(4).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div> 
 		</div>
@@ -147,7 +147,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%=month.get(5).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(5).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(5).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(5).getMonth_id() %>&month=<%=month.get(5).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div>     
 		</div>
@@ -164,7 +164,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%=month.get(6).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(6).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(6).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(6).getMonth_id() %>&month=<%=month.get(6).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div> 
 		</div>
@@ -174,7 +174,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%=month.get(7).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(7).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(7).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(7).getMonth_id() %>&month=<%=month.get(7).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div> 
 		</div>
@@ -184,7 +184,7 @@ color:black;
 		    <h5 class="card-title" style="font-size:25px;"><%=month.get(8).getMonth_number() %> Month Plan</h5>
 		   
 		    <p class="card-text" style="font-size:20px;">Price: <%=month.get(8).getPrice() %> </p>
-		    <a href="./membershipPayment.jsp?id=<%=month.get(8).getMcard_id() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
+		    <a href="./membershipPayment.jsp?id=<%=month.get(8).getMonth_id() %>&month=<%=month.get(8).getMonth_number() %>" class="card-link"><button class="btn btn-info" style="font-size:17px; float:right;">Get this Plan</button></a>
 		  </div>
 		</div>     
 		</div>

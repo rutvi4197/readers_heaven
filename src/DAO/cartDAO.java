@@ -85,4 +85,56 @@ public class cartDAO {
 		        }
 			return n>0;
 		}
+		
+		public Boolean checkout(Integer user_id,String issueDate,String returnDate) {
+			String sql = "update rent set statusOfRent=1,issue_date='"+issueDate+"',return_date='"+returnDate+"'where user_id="+user_id+" and statusOfRent=0";
+	        int n=0;
+	        try {
+	            Statement stmt = con.createStatement();
+	            n = stmt.executeUpdate( sql );
+	        }
+	        catch(SQLException e) {
+	            System.out.println(e.getMessage());
+	        }
+	        return n>0;
+		}
+		
+		public List<bookBean> getOrderDetail(int user_id){
+			 List<bookBean> bookList =new ArrayList<bookBean>();
+		      Statement stmt;
+		      bookBean b;
+		      try {
+		        
+		    	  String query="select * from book as b,rent as r where r.library_book_mapping_id=b.book_id and r.statusOfRent=1 and r.user_id="+user_id;
+		    	  stmt = con.createStatement();        
+		          ResultSet rs = stmt.executeQuery(query);
+		         
+		          while ( rs.next() ) 
+		          {
+		        	  b = new bookBean();
+		              b.setBook_id(rs.getInt("book_id"));
+		              b.setBook_title(rs.getString("book_title"));
+		              b.setAuthor(rs.getString("author"));
+		              b.setEdition(rs.getInt("edition"));
+		              b.setPublisher(rs.getString("publisher"));
+		              b.setIsbn(rs.getString("isbn"));
+		              b.setPages(rs.getInt("pages"));
+		              b.setMrp(rs.getInt("mrp"));
+		              b.setPhoto(rs.getString("photo"));
+		              b.setCategory_id(rs.getInt("category_id"));
+		              b.setDescription(rs.getString("description"));
+		              b.setPublish_year(rs.getInt("publish_year"));
+		              b.setBook_language(rs.getString("book_language"));
+		              b.setRent_id(rs.getInt("rent_id"));
+		              bookList.add(b);
+		        	  
+		       
+		          }    
+		    	  
+		      }  catch(SQLException e) {
+		          System.out.println("dao"+e);
+		      }
+		      return bookList;
+		   
+		}
 }

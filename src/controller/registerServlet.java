@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAO.loginDAO;
+import DAO.walletDAO;
 
 /**
  * Servlet implementation class registerServlet
@@ -65,6 +66,7 @@ public class registerServlet extends HttpServlet {
 				if (new loginDAO().addUserAddress(user_id, add1, add2, city, pincode, 0.0, 0.0, contact, type)) {
 					HttpSession session = request.getSession();
 					session.setAttribute("user_id", user_id);
+					session.setAttribute("walletAmount", new walletDAO().getWalletPrice(user_id));
 					response.sendRedirect("./membership.jsp");
 				}
 			} else {

@@ -71,4 +71,25 @@ public class membershipDAO {
 	   
 	}
 	
+	public int getMembershipPrice(int id){
+		
+	      Statement stmt;
+	      int price=0;
+	      try {
+	        
+	    	  stmt = con.createStatement();        
+	          ResultSet rs = stmt.executeQuery("select * from membership_month_mapping where month_id="+id);
+	         
+	          while ( rs.next() ) 
+	          {
+	        	price=rs.getInt("price");
+	          }    
+	    	  
+	      }  catch(SQLException e) {
+	          System.out.println("dao"+e);
+	      }
+	      return price;
+	   
+	}
+	
 }

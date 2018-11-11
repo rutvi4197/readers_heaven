@@ -139,4 +139,34 @@
     <servlet-name>addMembershipServlet</servlet-name>
     <url-pattern>/addMembershipServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>logoutServlet</display-name>
+    <servlet-name>logoutServlet</servlet-name>
+    <servlet-class>controller.logoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutServlet</servlet-name>
+    <url-pattern>/logoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkoutServlet</display-name>
+    <servlet-name>checkoutServlet</servlet-name>
+    <servlet-class>controller.checkoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkoutServlet</servlet-name>
+    <url-pattern>/checkoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>orderServlet</display-name>
+    <servlet-name>orderServlet</servlet-name>
+    <servlet-class>controller.orderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>orderServlet</servlet-name>
+    <url-pattern>/orderServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -154,8 +154,21 @@
                         <div class="cart_totals">
                             <h2>Cart Totals</h2>
                            <h3>Total : Rs.<%=sum %></h3>
-                            <div class="wc-proceed-to-checkout">
-                                <a href="#">Proceed to Checkout</a>
+                           <div class="wc-proceed-to-checkout">
+                           <%
+                           	if(session.getAttribute("walletAmount")==null){%>
+                           	 <a href="./payment.jsp?total=<%=sum%>">Proceed to Payment</a>
+                           	<% }else{
+                           		Integer t=(Integer)session.getAttribute("walletAmount");
+                           		if(sum<=t){%>
+                           		 <a href="./checkout.jsp?total=<%=sum%>">Proceed to Checkout</a>
+                           		<% }
+                           		else{%>
+                           		<br>
+                           			<h4 style="color:red">You Don't Have enough Balance for Checkout</h4>
+                           		<% }
+                           	}
+                           %>
                             </div>
                         </div>
                     </div>

@@ -54,7 +54,7 @@ padding: 12px 10px;
     <body class="register">
     <%List<categoryBean>list=(ArrayList)request.getAttribute("listOfCategory");
 	if(list==null){ %>
-		 <jsp:forward page="/categoryServlet?action=membershipPayment.jsp" />
+		 <jsp:forward page="/categoryServlet?action=payment.jsp" />
 		 <% } %>
        <%@include file="header.jsp" %>
        
@@ -83,7 +83,7 @@ padding: 12px 10px;
 							<h2>Payment</h2>
 						</div>
 					</div>
-					<form action="./addMembershipServlet?id=<%= request.getParameter("id") %>&month=<%=request.getParameter("month")%>" method="post">
+					<form action="./checkoutServlet %>" method="post">
 					<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12 login-form">
 					
 						<div class="billing-fields">
