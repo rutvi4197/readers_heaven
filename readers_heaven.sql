@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 10, 2018 at 12:17 PM
+-- Generation Time: Nov 11, 2018 at 05:21 PM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -246,14 +246,16 @@ CREATE TABLE IF NOT EXISTS `rent` (
   `quantity` int(11) NOT NULL,
   `statusOfRent` int(2) NOT NULL,
   PRIMARY KEY (`rent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `rent`
 --
 
 INSERT INTO `rent` (`rent_id`, `library_book_mapping_id`, `user_id`, `issue_date`, `return_date`, `quantity`, `statusOfRent`) VALUES
-(3, 12, 1, '09/11/2018', '', 1, 0);
+(3, 12, 1, '09/11/2018', '', 1, 0),
+(7, 8, 1, '11/11/2018', '', 1, 1),
+(8, 11, 11, '11/11/2018', '10/5/2019', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -294,20 +296,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_on` varchar(15) NOT NULL,
   `modified_on` varchar(15) NOT NULL,
   `wallet_id` int(11) NOT NULL,
+  `membership_issue_date` varchar(15) DEFAULT NULL,
+  `membership_return_date` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `name`, `email`, `password`, `membership_id`, `status`, `created_on`, `modified_on`, `wallet_id`) VALUES
-(1, 'Rutvi Shah', 'rutvishah@gmail.com', 'priyansh', 1, 0, '2/11/18', '2/11/18', 1),
-(2, 'Shilpi Soni', 'shilpi@gmail.com', '3cef53fb709ddcf8', 0, 0, '5/11/2018', '', 0),
-(6, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0),
-(7, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0),
-(8, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0),
-(9, 'Priyansh', 'priyansh@gmail.com', 'ritu', 0, 0, '09/11/2018', 'null', 0);
+INSERT INTO `user` (`user_id`, `name`, `email`, `password`, `membership_id`, `status`, `created_on`, `modified_on`, `wallet_id`, `membership_issue_date`, `membership_return_date`) VALUES
+(1, 'Rutvi Shah', 'rutvishah@gmail.com', 'priyansh', 1, 0, '2/11/18', '2/11/18', 1, '', ''),
+(10, 'Shilpi Soni', 'shilpi@gmail.com', 'shilpi', 2, 0, '11/11/2018', 'null', 0, '', ''),
+(11, 'Priyansh Sheth', 'priyansh@gmail.com', 'priyansh', 2, 0, '11/11/2018', 'null', 11, '11/11/2018', '10/5/2019');
 
 -- --------------------------------------------------------
 
@@ -327,14 +328,18 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `contact_no` bigint(20) NOT NULL,
   `address_type` varchar(5) NOT NULL,
   PRIMARY KEY (`user_address_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `user_address`
 --
 
 INSERT INTO `user_address` (`user_address_id`, `user_id`, `user_address_1`, `user_address_2`, `city`, `pincode`, `longitude`, `latitude`, `contact_no`, `address_type`) VALUES
-(2, 9, 'kshfuywehj', 'ksfhh', 'Ahmedabad', 3820015, 0, 0, 8905106525, 'home');
+(2, 9, 'kshfuywehj', 'ksfhh', 'Ahmedabad', 3820015, 0, 0, 8905106525, 'home'),
+(3, 10, 'hsnjbj', 'Nehrunagar', 'Ahmedabad', 3820007, 0, 0, 1234567894, 'other'),
+(4, 0, 'b-2 sonarika appartment', 'near jain society,paldi', 'Ahmedabad', 380014, 0, 0, 8905106525, 'home'),
+(5, 0, 'b-2 sonarika appartment', 'near jain society,paldi', 'Ahmedabad', 380014, 0, 0, 8905106525, 'home'),
+(6, 11, 'b-2 sonarika appartment', 'near jain society,paldi', 'Ahmedabad', 380014, 0, 0, 8905106525, 'home');
 
 -- --------------------------------------------------------
 
@@ -346,11 +351,13 @@ CREATE TABLE IF NOT EXISTS `wallet` (
   `wallet_id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`wallet_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `wallet`
 --
 
 INSERT INTO `wallet` (`wallet_id`, `amount`) VALUES
-(1, 411);
+(1, 261),
+(2, 2),
+(11, 650);
