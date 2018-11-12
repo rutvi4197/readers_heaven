@@ -125,13 +125,22 @@
                                             </div>
                                             <div class="product-details text-center">
                                                 
-                                                <h4><a href="./bookDetailServlet?id=<%=book.getBook_id()%>"><%=book.getBook_title() %></a></h4>
+                                                <h4><a href="./bookDetailServlet?id=<%=book.getBook_id()%>"><%=book.getBook_title() %></a> </h4>
+                                                     
+                                                    
                                                <div class="product-price">
-                                                    <ul>
-                                                        <li>Rs.<%=book.getMrp() %></li>
-                                                    </ul>
+                                                   <ul>
+                                            <li>Rs.<%= book.getMrp() %></li>
+                                        </ul>
                                                 </div>
                                             </div>
+                                            
+                                      <p style="font-size:17px;text-align:center">  Issue Date:&nbsp;<%=book.getIssue_date() %></p>
+                                      
+                                        <p style="font-size:17px;text-align:center">Return Date:&nbsp<%=book.getReturn_date() %></p>
+                                      
+                                    
+                               
                                             	
                                         </div>
                                         <!-- single-product-end -->

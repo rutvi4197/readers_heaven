@@ -49,9 +49,39 @@ padding: 12px 10px;
         .colorspan{
         color: red;
         }
-        </style>
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+</style>
     </head>
     <body class="register">
+    
+      <%String registerError=(String)session.getAttribute("registerError");
+	if(registerError!=null){ 
+	%>  
+        <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <%=registerError %>
+</div>
+		<%}%>
+    
     <%List<categoryBean>list=(ArrayList)request.getAttribute("listOfCategory");
 	if(list==null){ %>
 		 <jsp:forward page="/categoryServlet?action=register.jsp" />
@@ -94,7 +124,7 @@ padding: 12px 10px;
 									<div class="single-register">
 										
 											<label>Full Name<span class="colorspan">*</span></label>
-											<input type="text" name="name"/>
+											<input type="text" name="name" required/>
 									</div>
 								</div>
 								
@@ -104,7 +134,7 @@ padding: 12px 10px;
 									<div class="single-register">
 									
 											<label>Email Address<span class="colorspan">*</span></label>
-											<input type="email" name="email"/>
+											<input type="email" name="email" required />
 										
 									</div>
 								</div>
@@ -112,7 +142,7 @@ padding: 12px 10px;
 									<div class="single-register">
 									
 											<label>Phone Number<span class="colorspan">*</span></label>
-											<input type="number" name="contactNo"/>
+											<input type="text" name="contactNo"   pattern="[789][0-9]{9}" min=10 max=10 required />
 										
 									</div>
 								</div>
@@ -120,14 +150,14 @@ padding: 12px 10px;
 							<div class="single-register">
 							
 									<label>Address<span class="colorspan">*</span></label>
-									<input type="text" placeholder="Street address" name="address1"/>
-									<input type="text" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional" name="address2"/>
+									<input type="text" placeholder="Street address" name="address1" required/>
+									<input type="text" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional" name="address2" required/>
 								
 							</div>
 							<div class="single-register">
 								
 									<label>City<span class="colorspan">*</span></label>
-									<input type="text"  name="city"/>
+									<input type="text"  name="city" required/>
 								
 							</div>
 				
@@ -135,7 +165,7 @@ padding: 12px 10px;
 									<div class="single-register">
 										
 											<label>Postcode/zip<span class="colorspan">*</span></label>
-											<input type="text" placeholder="PinCode" name="pincode"/>
+											<input type="text" placeholder="PinCode" name="pincode" required max=6 min=6 pattern="[0-9]{6}"/>
 										
 									</div>
 							
@@ -143,13 +173,13 @@ padding: 12px 10px;
 							<div class="single-register">
 								
 									<label>Account password<span class="colorspan">*</span></label>
-									<input type="text" placeholder="Password" name="password"/>
+									<input type="password" placeholder="Password" name="password" required/>
 								
 							</div>
 							<div class="single-register">
 								
 									<label>Confirm password<span class="colorspan">*</span></label>
-									<input type="text" placeholder="Password" name="confirmPassword"/>
+									<input type="password" placeholder="Password" name="confirmPassword" required/>
 								
 							</div>
 							<div class="single-register">

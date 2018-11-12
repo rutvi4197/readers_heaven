@@ -58,18 +58,20 @@ public class registerServlet extends HttpServlet {
 		Date d = new Date();
 		SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
 		String strDate = date.format(d);
-
+		HttpSession session = request.getSession();
 		// System.out.println(name+" + "+type+" + "+" email ");
 		try {
 			if (password.equals(confirmPassword)) {
 				int user_id = new loginDAO().addUser(name, email, password, 0, 0, strDate, null, 0);
 				if (new loginDAO().addUserAddress(user_id, add1, add2, city, pincode, 0.0, 0.0, contact, type)) {
-					HttpSession session = request.getSession();
+					
 					session.setAttribute("user_id", user_id);
 					session.setAttribute("walletAmount", new walletDAO().getWalletPrice(user_id));
 					response.sendRedirect("./membership.jsp");
 				}
 			} else {
+				session.setAttribute("registerError", "Invalid Password,Enter valid Password");
+				response.sendRedirect("register.jsp");
 				System.out.println("Password Not Match");
 			}
 		} catch (Exception e) {

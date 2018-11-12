@@ -40,17 +40,19 @@ public class loginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
+		HttpSession session=request.getSession();	
 		try {
 		userBean user=new loginDAO().checkLogin(email, password);
 		if(user!=null)
 		{
-			HttpSession session=request.getSession();	
+			
 			session.setAttribute("user_id", user.getUser_id());
 			session.setAttribute("walletAmount", new walletDAO().getWalletPrice(user.getUser_id()));
 			response.sendRedirect("index.jsp");
 		}
 		else
 		{
+			session.setAttribute("loginError", "Email or Password is incorrect");
 			response.sendRedirect("login.jsp");
 		}
 		

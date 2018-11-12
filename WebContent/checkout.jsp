@@ -90,7 +90,7 @@
 		</div>
 		
 		<script type="text/javascript">
-			alert("Do You Want to continue to checkout books");
+			alert("Do You Want to continue to checkout!");
 			top.window.location="./checkoutServlet?total=<%=request.getParameter("total")%>";
 		</script> 
 		
@@ -103,7 +103,7 @@
 						<div class="entry-header-title">
 							<h2>Checkout</h2>
 							
-							<
+							
 							</div>
 					</div>
 				</div>

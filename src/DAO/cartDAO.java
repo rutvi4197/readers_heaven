@@ -126,6 +126,8 @@ public class cartDAO {
 		              b.setPublish_year(rs.getInt("publish_year"));
 		              b.setBook_language(rs.getString("book_language"));
 		              b.setRent_id(rs.getInt("rent_id"));
+		              b.setIssue_date(rs.getString("issue_date"));
+		              b.setReturn_date(rs.getString("return_date"));
 		              bookList.add(b);
 		        	  
 		       

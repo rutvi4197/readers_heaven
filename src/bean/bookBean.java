@@ -20,6 +20,8 @@ public class bookBean {
 	private String created_on;
 	private String modified_on;
 	private int rent_id;
+	private String issue_date;
+	private String return_date;
 	
 	public int getRent_id() {
 		return rent_id;
@@ -128,6 +130,18 @@ public class bookBean {
 	}
 	public void setCategory_name(String category_name) {
 		this.category_name = category_name;
+	}
+	public String getIssue_date() {
+		return issue_date;
+	}
+	public void setIssue_date(String issue_date) {
+		this.issue_date = issue_date;
+	}
+	public String getReturn_date() {
+		return return_date;
+	}
+	public void setReturn_date(String return_date) {
+		this.return_date = return_date;
 	}
 	
 	

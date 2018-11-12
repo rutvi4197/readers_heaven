@@ -107,8 +107,8 @@
 							    <div class="row">
 							     <%List<bookBean> cb=(ArrayList)request.getAttribute("categoryBooks");
 							     
-							     if(cb==null){%>
-							    	 <h3>No Book Available</h3>
+							     if(cb.size()==0){%>
+							    	 <h3 style="color:red;">No Book Available</h3>
 							     <% }else{
 							    	 for(int i=0;i<cb.size();i++){
 							    		 bookBean book=cb.get(i);

@@ -36,14 +36,14 @@ public class addCartServlet extends HttpServlet {
 		String strDate=date.format(d);
 		HttpSession session=request.getSession();
 		Integer user_id=(Integer)session.getAttribute("user_id");
-		System.out.println(strDate);
+		
 		if(user_id==null) {
 			response.sendRedirect("./login.jsp");
 		}
 		String issueDate=date.toString();
 		try {
 			if(new cartDAO().addToCart(id,user_id,strDate,"",1,0)) {
-				response.sendRedirect("./bookDetailServlet?id="+id);
+				response.sendRedirect("./cartServlet");
 			}
 			
 		}catch(Exception e) {

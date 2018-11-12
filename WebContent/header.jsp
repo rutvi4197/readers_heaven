@@ -20,13 +20,12 @@
 							if(session.getAttribute("user_id")==null){
 							%>
 								<ul>
-									<li><a href="register.jsp">My Account</a></li>
-									<li><a href="checkout.jsp">Checkout</a></li>
-									<li><a href="login.jsp">Sign in</a></li>
+									<li><a href="register.jsp">Register</a></li>
+									<li><a href="login.jsp">Login</a></li>
 								</ul>
 								<%}else{ %>
 								<ul>
-									<li><a href="#">View Profile</a></li>
+									<li><a href="./membershipServlet">Membership</a></li>
 									<li><a href="./orderServlet">Orders</a></li>
 									<li><a href="">Wallet Balance : <%
 										if(session.getAttribute("walletAmount")==null){

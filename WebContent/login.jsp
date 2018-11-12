@@ -36,10 +36,40 @@
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
+    <style>
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+</style>
     <body class="login">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        
+      <%String loginError=(String)session.getAttribute("loginError");
+	if(loginError!=null){ 
+	%>  
+        <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <%=loginError %>
+</div>
+		<%}%>
+        
+        
 <%List<categoryBean>list=(ArrayList)request.getAttribute("listOfCategory");
 	if(list==null){ %>
 		 <jsp:forward page="/categoryServlet?action=login.jsp" />
