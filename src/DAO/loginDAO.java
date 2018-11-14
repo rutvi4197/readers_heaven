@@ -70,11 +70,11 @@ public class loginDAO {
 			
 		}
 		
-		public Boolean addUserAddress(int user_id,String add1,String add2,String city,int pincode,double lot,double lat,BigInteger contact,String type) {
+		public Boolean addUserAddress(int user_id,String add1,String add2,String city,int pincode,double lot,double lat,String contact,String type) {
 			int n=0;
 			
 			try {
-				String query="insert into user_address values(null,"+user_id+",'"+add1+"','"+add2+"','"+city+"',"+pincode+","+lot+","+lat+","+contact+",'"+type+"');";
+				String query="insert into user_address values(null,"+user_id+",'"+add1+"','"+add2+"','"+city+"',"+pincode+","+lot+","+lat+",'"+contact+"','"+type+"');";
 			
 				Statement stmt = con.createStatement();
 				n = stmt.executeUpdate( query );

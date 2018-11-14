@@ -79,7 +79,7 @@
 								<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
 									<div >
 										
-											  <img src="<%= b.getPhoto() %>" alt="Book">
+											  <img src="<%= b.getPhoto() %>" alt="Book" width="212px">
 										
 									</div>
 								</div>
@@ -224,7 +224,7 @@
 												<a href="#"><img src="<%= book.getPhoto() %>" alt="book" /></a>
 											</div>
 											
-												<h4><a href="#"><%= book.getBook_title() %></a></h4>
+												<h4><a href="./bookDetailServlet?id=<%=book.getBook_id()%>"><%= book.getBook_title() %></a></h4>
 												<div class="product-price">
 													<ul>
 														<li>Rs. <%= book.getMrp()%></li>

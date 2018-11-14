@@ -1,3 +1,4 @@
+<%@page import="bean.user_addressBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!doctype html>
@@ -64,6 +65,30 @@
         <script src="./js/plugins.js"></script>
 		<!-- main js -->
         <script src="./js/main.js"></script>
+        
+        <style type="text/css">
+        .box {
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+	}
+	button{
+	background: #333 none repeat scroll 0 0;
+border: 0 none;
+border-radius: 0;
+color: #fff;
+display: inline-block;
+font-size: 14px;
+font-weight: 700;
+height: 50px;
+line-height: 50px;
+padding: 0 28px;
+text-transform: uppercase;
+width: auto;
+transition: .3s;
+}
+        </style>
     </head>
     <body class="checkout">
     <%List<categoryBean>list=(ArrayList)request.getAttribute("listOfCategory");
@@ -87,25 +112,42 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		
-		<script type="text/javascript">
-			alert("Do You Want to continue to checkout!");
-			top.window.location="./checkoutServlet?total=<%=request.getParameter("total")%>";
-		</script> 
-		
+		</div>	
+		<%String num=request.getParameter("total");%>
 		<!-- breadcrumbs-area-end -->
 		<!-- entry-header-area-start -->
 		<div class="entry-header-area">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12">
+					
+							<h2>Select Delivery Address <span style="float:right;font-size:20px;"><a href="./addAddress.jsp?total=<%=num%>">Add New Address</a></span></h2>
+							 <%List<user_addressBean>addresss=(ArrayList)request.getAttribute("addresss");
+							if(addresss==null){ %>
+							 <jsp:forward page="/userAddressServlet" />
+		 					<% } else{
+		 						
+		 						for(int i=0;i<addresss.size();i++)
+								{
+		 							user_addressBean a=addresss.get(i);
+							%>
+							<div class="col-lg-4">
 						<div class="entry-header-title">
-							<h2>Checkout</h2>
-							
-							
+							<div class="box mb-40">
+                             <h4>Address:</h4><%=a.getUser_address() %>
+                                <div class="product-details ">
+                       				Contact No:<%=a.getContact_no()%><br>
+                                   Address Type:<%=a.getAddress_type() %>
+                                </div>
+                               <div>
+                               
+                               <a href="./checkoutServlet?total=<%=num%>"><button>Select Address</button></a>
+                               </div>
+                            </div>
+                            <!-- single-product-end -->
+                        
 							</div>
 					</div>
+					   <% } } %>
 				</div>
 			</div>
 		</div>

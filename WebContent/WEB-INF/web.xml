@@ -169,4 +169,34 @@
     <servlet-name>orderServlet</servlet-name>
     <url-pattern>/orderServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addreessServlet</display-name>
+    <servlet-name>addreessServlet</servlet-name>
+    <servlet-class>controller.addreessServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addreessServlet</servlet-name>
+    <url-pattern>/addreessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>userAddressServlet</display-name>
+    <servlet-name>userAddressServlet</servlet-name>
+    <servlet-class>controller.userAddressServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userAddressServlet</servlet-name>
+    <url-pattern>/userAddressServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addAddressServlet</display-name>
+    <servlet-name>addAddressServlet</servlet-name>
+    <servlet-class>controller.addAddressServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addAddressServlet</servlet-name>
+    <url-pattern>/addAddressServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

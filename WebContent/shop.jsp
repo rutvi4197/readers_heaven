@@ -119,9 +119,9 @@
 							            <!-- single-product-start -->
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#">
-                                                    <img src="<%=book.getPhoto() %>" alt="book" class="primary" />
-                                                </a>
+                                                
+                                                    <img src="<%=book.getPhoto() %>" alt="book" class="primary" width="212px"  />
+                                               
                                             </div>
                                             <div class="product-details text-center">
                                                 

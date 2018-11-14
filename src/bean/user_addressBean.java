@@ -8,8 +8,9 @@ public class user_addressBean {
 	private int pincode;
 	private int longitude;
 	private int latitude;
-	private int contact_no;
+	private String contact_no;
 	private String address_type;
+	private String city;
 	public int getUser_address_id() {
 		return user_address_id;
 	}
@@ -46,10 +47,10 @@ public class user_addressBean {
 	public void setLatitude(int latitude) {
 		this.latitude = latitude;
 	}
-	public int getContact_no() {
+	public String getContact_no() {
 		return contact_no;
 	}
-	public void setContact_no(int contact_no) {
+	public void setContact_no(String contact_no) {
 		this.contact_no = contact_no;
 	}
 	public String getAddress_type() {
@@ -58,6 +59,13 @@ public class user_addressBean {
 	public void setAddress_type(String address_type) {
 		this.address_type = address_type;
 	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
 	
 	
 

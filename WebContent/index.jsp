@@ -179,7 +179,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-active owl-carousel">
+				<div class="tab-active owl-carousel" >
                    <%List<bookBean> fb= (ArrayList) request.getAttribute("featuredBooks");
 							if(fb==null){ %>
 							 <jsp:forward page="/BookServlet?action=Featured Books" />

@@ -47,7 +47,7 @@ public class registerServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		BigInteger contact = new BigInteger(request.getParameter("contactNo"));
+		String contact = request.getParameter("contactNo");
 		String add1 = request.getParameter("address1");
 		String add2 = request.getParameter("address2");
 		String city = request.getParameter("city");

@@ -161,7 +161,7 @@
                            	<% }else{
                            		Integer t=(Integer)session.getAttribute("walletAmount");
                            		if(sum<=t){%>
-                           		 <a href="./checkoutServlet?total=<%=sum%>">Proceed to Checkout</a>
+                           		 <a href="./checkout.jsp?total=<%=sum%>">Proceed to Checkout</a>
                            		<% }
                            		else{%>
                            		<br>
