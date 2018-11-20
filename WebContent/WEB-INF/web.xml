@@ -199,4 +199,14 @@
     <servlet-name>addAddressServlet</servlet-name>
     <url-pattern>/addAddressServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>uploadServlet</display-name>
+    <servlet-name>uploadServlet</servlet-name>
+    <servlet-class>controller.uploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>uploadServlet</servlet-name>
+    <url-pattern>/uploadServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
