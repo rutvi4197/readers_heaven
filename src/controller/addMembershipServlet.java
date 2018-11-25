@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import DAO.loginDAO;
 import DAO.membershipDAO;
+import DAO.walletDAO;
 
 /**
  * Servlet implementation class addMembershipServlet
@@ -56,7 +57,7 @@ public class addMembershipServlet extends HttpServlet {
 		try {
 			if(new loginDAO().updateMembership(user_id, id,strDate,returnDate))
 			{
-				session.setAttribute("walletAttribute", new membershipDAO().getMembershipPrice(id));
+				session.setAttribute("walletAmount", new walletDAO().getWalletPrice(user_id));
 				response.sendRedirect("./index.jsp");
 			}
 		}catch(Exception e) {
